@@ -1,0 +1,57 @@
+// Prisma schema for AI Debate Partner
+// After setting DATABASE_URL in .env, run:  npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  debates      Debate[]
+}
+
+model Debate {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  topic     String
+  userSide  String
+  aiSide    String
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  turns     Turn[]
+}
+
+model Turn {
+  id         String   @id @default(cuid())
+  debateId   String
+  debate     Debate   @relation(fields: [debateId], references: [id])
+  speaker    String // "user" | "ai"
+  content    String
+  turnNumber Int
+  createdAt  DateTime @default(now())
+  score      Score?
+}
+
+model Score {
+  id             String   @id @default(cuid())
+  turnId         String   @unique
+  turn           Turn     @relation(fields: [turnId], references: [id])
+  logic          Int
+  evidence       Int
+  persuasiveness Int
+  rebuttal       Int
+  total          Int
+  fallacies      Json
+  tips           Json
+  createdAt      DateTime @default(now())
+}

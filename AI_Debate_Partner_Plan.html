@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Debate Partner — Project Plan</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #1a1a2e;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    margin: 0;
+  }
+  h1 { font-size: 26pt; color: #4a2fbd; margin: 0 0 4px; }
+  h2 {
+    font-size: 15pt; color: #ffffff; background: #4a2fbd;
+    padding: 7px 12px; border-radius: 6px; margin: 26px 0 12px;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 12pt; color: #4a2fbd; margin: 18px 0 6px; page-break-after: avoid; }
+  h4 { font-size: 10.5pt; color: #2a2a4a; margin: 12px 0 4px; }
+  p { margin: 6px 0; }
+  ul, ol { margin: 6px 0 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  code {
+    background: #f0eefb; color: #4a2fbd; padding: 1px 5px;
+    border-radius: 3px; font-family: "Consolas", monospace; font-size: 9.5pt;
+  }
+  pre {
+    background: #1e1e30; color: #e8e8f0; padding: 12px 14px;
+    border-radius: 6px; font-family: "Consolas", monospace; font-size: 8.8pt;
+    line-height: 1.4; overflow-x: auto; white-space: pre-wrap; page-break-inside: avoid;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9.5pt; page-break-inside: avoid; }
+  th { background: #4a2fbd; color: #fff; text-align: left; padding: 7px 9px; }
+  td { border: 1px solid #d8d4ee; padding: 6px 9px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f7f6fd; }
+  .subtitle { font-size: 12pt; color: #6b6b8a; margin: 0 0 2px; }
+  .meta { font-size: 9pt; color: #9a9ab0; margin-bottom: 10px; }
+  .card { border: 1px solid #d8d4ee; border-left: 4px solid #4a2fbd; border-radius: 6px; padding: 10px 14px; margin: 10px 0; background: #faf9fe; page-break-inside: avoid; }
+  .tag { display: inline-block; background: #e6e1fa; color: #4a2fbd; padding: 2px 8px; border-radius: 10px; font-size: 8.5pt; margin: 2px 3px 2px 0; }
+  .flow { background: #faf9fe; border: 1px dashed #b9b0e8; border-radius: 6px; padding: 12px; font-family: "Consolas", monospace; font-size: 8.6pt; line-height: 1.55; white-space: pre; overflow-x: auto; page-break-inside: avoid; }
+  .section { page-break-inside: avoid; }
+  .pagebreak { page-break-before: always; }
+  .note { background: #fff8e6; border-left: 4px solid #e0a500; padding: 8px 12px; border-radius: 4px; margin: 10px 0; font-size: 9.5pt; }
+  .cover { text-align: center; padding-top: 60px; page-break-after: always; }
+  .cover h1 { font-size: 38pt; }
+  .cover .big { font-size: 15pt; color: #6b6b8a; margin-top: 8px; }
+  .cover .stack { margin-top: 30px; }
+  hr { border: none; border-top: 1px solid #e0dcf2; margin: 16px 0; }
+  .two { display: flex; gap: 14px; }
+  .two > div { flex: 1; }
+  .filepath { color: #4a2fbd; font-weight: bold; font-family: "Consolas", monospace; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="cover">
+  <div style="font-size:52pt;">🎭</div>
+  <h1>AI Debate Partner</h1>
+  <div class="big">Full Technical Project Plan &amp; Build Guide</div>
+  <div class="big" style="font-size:12pt;">Powered by an open-source Hugging Face LLM</div>
+  <div class="stack">
+    <span class="tag">React + Vite</span>
+    <span class="tag">Node.js + Express</span>
+    <span class="tag">Hugging Face Inference</span>
+    <span class="tag">PostgreSQL + Prisma</span>
+    <span class="tag">Web Speech API</span>
+    <span class="tag">JWT Auth</span>
+  </div>
+  <p class="meta" style="margin-top:40px;">Resume / Portfolio Project &nbsp;•&nbsp; Prepared for Bhushan Uparikar</p>
+</div>
+
+<!-- ============ 1. OVERVIEW ============ -->
+<h1>AI Debate Partner</h1>
+<p class="subtitle">Pick any topic → the AI takes the opposite side and debates you in real time, scores your arguments, flags logical fallacies, and gives improvement tips.</p>
+<hr>
+
+<h2>1. Project Overview</h2>
+<p><b>What it is:</b> An educational web app where a user chooses a debate topic and a side (Pro/Con). The AI argues the <i>opposite</i> side, and after each of the user's arguments it acts as a judge — producing a numeric score, detecting logical fallacies, and giving concrete tips to improve.</p>
+<p><b>Why it stands out on a resume:</b> It is real AI engineering (a dual-role LLM system with a structured scoring rubric), full-stack ownership (frontend + API + database + deploy), and a genuinely useful product angle beyond a plain chatbot.</p>
+<div class="card">
+  <b>Three things this project proves to a recruiter:</b>
+  <ol>
+    <li><b>Real AI integration</b> — structured prompting, an LLM-as-judge scoring layer, JSON output parsing, and a provider-swappable architecture.</li>
+    <li><b>Full-stack skill</b> — React frontend, Node/Express API, PostgreSQL persistence, authentication, deployment.</li>
+    <li><b>Product thinking</b> — the argument-scoring + fallacy-detection feature is the differentiator. It is the headline talking point in interviews.</li>
+  </ol>
+</div>
+
+<!-- ============ 2. TECH STACK ============ -->
+<h2>2. Technology Stack &amp; Why</h2>
+<table>
+  <tr><th style="width:20%">Layer</th><th style="width:28%">Technology</th><th>Why this choice</th></tr>
+  <tr><td>Frontend</td><td>React + Vite + TypeScript</td><td>Fast dev server, component model fits a chat UI, TypeScript signals engineering rigor to reviewers.</td></tr>
+  <tr><td>Styling</td><td>Tailwind CSS</td><td>Build a clean, responsive UI quickly without writing large CSS files.</td></tr>
+  <tr><td>Backend</td><td>Node.js + Express + TypeScript</td><td>Lightweight, familiar, huge ecosystem. Keeps the AI token/API key on the server, never in the browser.</td></tr>
+  <tr><td>AI Model</td><td>Hugging Face Inference (open LLM, e.g. Llama 3.3 / Qwen 2.5)</td><td>Free tier / open-source. Called only from the backend. Wrapped behind one swappable function so the provider can be changed without touching app logic.</td></tr>
+  <tr><td>Database</td><td>PostgreSQL + Prisma ORM</td><td>Relational data (users → debates → turns → scores) maps perfectly to SQL. Prisma gives type-safe queries + easy migrations.</td></tr>
+  <tr><td>Voice mode</td><td>Web Speech API</td><td>Built into the browser — speech-to-text and text-to-speech at zero cost, no external API.</td></tr>
+  <tr><td>Auth</td><td>JWT (jsonwebtoken + bcrypt)</td><td>Stateless, simple, industry-standard. Lets users save and reopen debate history.</td></tr>
+  <tr><td>Hosting</td><td>Vercel (frontend) · Render (backend) · Neon (Postgres)</td><td>All have free tiers → the whole project runs at $0.</td></tr>
+</table>
+<div class="note"><b>Key security rule:</b> The Hugging Face token lives <b>only on the backend</b> in a <code>.env</code> file. The React app never sees it — it only talks to your own Express API. Exposing an API key in frontend code is an instant red flag to reviewers and a real security hole.</div>
+
+<!-- ============ 3. HF MODEL ============ -->
+<h2>3. Choosing the Hugging Face Model</h2>
+<p>The app needs two things from the model: <b>good reasoning</b> (to argue and to judge fairly) and <b>reliable JSON output</b> (for the scoring). Bigger instruct-tuned models do both far better than tiny ones.</p>
+<table>
+  <tr><th>Role</th><th>Recommended model</th><th>Why</th></tr>
+  <tr><td>Primary (debate + scoring)</td><td><code>meta-llama/Llama-3.3-70B-Instruct</code></td><td>Strong reasoning, follows the "opposite side" persona and the scoring rubric well. Available via HF Inference Providers.</td></tr>
+  <tr><td>Cheaper / faster alt</td><td><code>Qwen/Qwen2.5-7B-Instruct</code> or <code>mistralai/Mistral-7B-Instruct</code></td><td>Fully free on the serverless tier, fast, fine for a demo. Weaker on nuanced scoring.</td></tr>
+  <tr><td>Local / offline (optional)</td><td>Run <code>Qwen2.5</code> via <b>Ollama</b></td><td>100% free, no rate limits, no token — needs a decent CPU/GPU.</td></tr>
+</table>
+<div class="note"><b>Reality check on "free":</b> HF's serverless Inference API is rate-limited and small models don't always guarantee valid JSON. Mitigation is built into the design (Section 6): the scorer request asks for strict JSON, and the backend has a <b>JSON-repair + retry</b> wrapper so a malformed score never crashes the app.</div>
+
+<!-- ============ 4. ARCHITECTURE ============ -->
+<h2 class="pagebreak">4. System Architecture &amp; Logic Flow</h2>
+<div class="flow">┌──────────────┐        HTTPS/JSON        ┌───────────────┐    HTTPS    ┌──────────────────┐
+│   React SPA  │ ───────────────────────▶ │  Express API  │ ──────────▶ │  Hugging Face    │
+│  (browser)   │ ◀─────────────────────── │  (Node.js)    │ ◀────────── │  Inference API   │
+│              │                          │               │             └──────────────────┘
+│ Web Speech   │   token stays here ──▶   │  callLLM()    │
+│ API (voice)  │                          │  scoring svc  │
+└──────────────┘                          └───────┬───────┘
+                                                  │ Prisma
+                                                  ▼
+                                          ┌───────────────┐
+                                          │  PostgreSQL   │  users · debates · turns · scores
+                                          └───────────────┘</div>
+
+<h3>End-to-end flow of ONE debate turn</h3>
+<div class="flow">1.  User types/speaks an argument in the React chat box.
+2.  Frontend POSTs { debateId, argument } to  POST /api/debate/:id/turn   (with JWT).
+3.  Express saves the user's Turn row in Postgres.
+4.  Express calls callLLM() TWICE, in parallel:
+        (a) DEBATER  → generates the AI's opposite-side rebuttal.
+        (b) JUDGE    → returns strict JSON: scores + fallacies + tips.
+5.  Backend parses/repairs the Judge JSON, saves an AI Turn + a Score row.
+6.  Backend responds: { aiRebuttal, score, fallacies, tips, runningTotal }.
+7.  Frontend renders the rebuttal in chat + a score card beside it.
+8.  (Voice mode) Web Speech API reads the AI rebuttal aloud.</div>
+
+<h3>Why two separate AI roles?</h3>
+<p>Mixing "argue against me" and "grade me fairly" in one prompt produces a biased judge. Splitting them into a <b>Debater</b> call and a <b>Judge</b> call keeps scoring objective and makes each prompt simpler and more reliable — this separation is itself a strong interview talking point.</p>
+
+<!-- ============ 5. DATA MODEL ============ -->
+<h2>5. Database Model (PostgreSQL / Prisma)</h2>
+<table>
+  <tr><th>Table</th><th>Key fields</th><th>Purpose</th></tr>
+  <tr><td><b>User</b></td><td>id, email, passwordHash, createdAt</td><td>Account + auth.</td></tr>
+  <tr><td><b>Debate</b></td><td>id, userId, topic, userSide, aiSide, status, createdAt</td><td>One debate session.</td></tr>
+  <tr><td><b>Turn</b></td><td>id, debateId, speaker (user/ai), content, turnNumber, createdAt</td><td>Every message in the debate.</td></tr>
+  <tr><td><b>Score</b></td><td>id, turnId, logic, evidence, persuasiveness, rebuttal, total, fallacies (JSON), tips (JSON)</td><td>One score row per <i>user</i> turn — the app's differentiator.</td></tr>
+</table>
+<pre>// prisma/schema.prisma  (core models)
+model User   { id String @id @default(cuid()) email String @unique passwordHash String
+               createdAt DateTime @default(now()) debates Debate[] }
+model Debate { id String @id @default(cuid()) userId String user User @relation(fields:[userId],references:[id])
+               topic String userSide String aiSide String status String @default("active")
+               createdAt DateTime @default(now()) turns Turn[] }
+model Turn   { id String @id @default(cuid()) debateId String debate Debate @relation(fields:[debateId],references:[id])
+               speaker String content String turnNumber Int createdAt DateTime @default(now()) score Score? }
+model Score  { id String @id @default(cuid()) turnId String @unique turn Turn @relation(fields:[turnId],references:[id])
+               logic Int evidence Int persuasiveness Int rebuttal Int total Int
+               fallacies Json tips Json createdAt DateTime @default(now()) }</pre>
+
+<!-- ============ 6. AI LOGIC ============ -->
+<h2 class="pagebreak">6. The AI Logic (the heart of the app)</h2>
+
+<h3>Role A — The Debater</h3>
+<p>System prompt locks the model to the assigned side, keeps rebuttals short (2–4 sentences), argues persuasively but fairly, and never concedes.</p>
+<pre>SYSTEM (Debater):
+"You are debating the {aiSide} side of the topic: '{topic}'.
+Argue persuasively for your side. Keep replies to 2-4 sentences.
+Never concede or switch sides. Respond directly to the user's last point."</pre>
+
+<h3>Role B — The Judge / Scorer</h3>
+<p>A second call that grades the user's argument and returns <b>strict JSON</b>. An explicit rubric (what a 1 vs a 10 means per category) keeps scores consistent.</p>
+<pre>SYSTEM (Judge):
+"You are a debate coach. Score the user's argument on a 1-10 scale for:
+ logic, evidence, persuasiveness, rebuttal.
+ Detect logical fallacies (name + the exact quote + why).
+ Give 1-3 concrete improvement tips.
+ Respond with ONLY valid JSON in this exact shape:"
+
+{
+  "scores": { "logic": 7, "evidence": 5, "persuasiveness": 8, "rebuttal": 6 },
+  "total": 26,
+  "fallacies": [ { "name": "Straw Man", "quote": "...", "explanation": "..." } ],
+  "tips": [ "Back your second claim with a concrete example." ]
+}</pre>
+<div class="note"><b>JSON reliability:</b> Because free HF models don't guarantee valid JSON, the backend wraps the Judge call in a helper that (1) extracts the first <code>{...}</code> block, (2) <code>JSON.parse</code>es it, and (3) if it fails, retries once with a "return valid JSON only" reminder before falling back to a safe default. This is in <span class="filepath">services/scoring.ts</span>.</div>
+
+<!-- ============ 7. FOLDER STRUCTURE ============ -->
+<h2>7. Folder Structure &amp; Which File Holds Which Logic</h2>
+<div class="two">
+<div>
+<h4>Backend — <span class="filepath">/server</span></h4>
+<pre>server/
+├── src/
+│   ├── index.ts          app entry, express setup
+│   ├── routes/
+│   │   ├── auth.ts        register / login
+│   │   └── debate.ts      start debate, take turn,
+│   │                      list history, get one
+│   ├── services/
+│   │   ├── llm.ts         callLLM() — HF provider
+│   │   │                  wrapper (swappable)
+│   │   ├── debater.ts     builds Debater prompt
+│   │   └── scoring.ts     Judge prompt + JSON
+│   │                      parse/repair/retry
+│   ├── middleware/
+│   │   └── auth.ts        JWT verify middleware
+│   ├── prisma/
+│   │   └── schema.prisma  DB models
+│   └── lib/prisma.ts      Prisma client singleton
+├── .env                   SECRETS (never committed)
+└── package.json</pre>
+</div>
+<div>
+<h4>Frontend — <span class="filepath">/client</span></h4>
+<pre>client/
+├── src/
+│   ├── main.tsx          React entry
+│   ├── App.tsx           routes
+│   ├── pages/
+│   │   ├── Home.tsx      topic + side picker
+│   │   ├── Debate.tsx    live chat + score cards
+│   │   └── History.tsx   saved debates list
+│   ├── components/
+│   │   ├── ChatBox.tsx   message list + input
+│   │   ├── ScoreCard.tsx score + fallacies + tips
+│   │   └── VoiceButton.tsx  Web Speech control
+│   ├── hooks/
+│   │   ├── useVoice.ts   speech-to-text / TTS
+│   │   └── useDebate.ts  API calls + state
+│   ├── lib/api.ts        fetch wrapper (adds JWT)
+│   └── styles (Tailwind)
+├── .env                  VITE_API_URL only
+└── package.json</pre>
+</div>
+</div>
+
+<h3>The swappable LLM layer (key design)</h3>
+<pre>// server/src/services/llm.ts
+export async function callLLM({ system, prompt, json }) {
+  // Provider chosen by env var → HF today, Claude/local later, no app changes
+  const res = await fetch(
+    `https://api-inference.huggingface.co/models/${process.env.HF_MODEL}`,
+    { method: "POST",
+      headers: { Authorization: `Bearer ${process.env.HF_TOKEN}`,
+                 "Content-Type": "application/json" },
+      body: JSON.stringify({ inputs: buildChat(system, prompt),
+                             parameters: { max_new_tokens: json ? 500 : 300,
+                                           temperature: json ? 0.2 : 0.7,
+                                           return_full_text: false } }) });
+  const data = await res.json();
+  return data[0].generated_text;
+}</pre>
+
+<!-- ============ 8. CREDENTIALS ============ -->
+<h2 class="pagebreak">8. Credentials &amp; Environment Variables Needed</h2>
+<table>
+  <tr><th>Credential</th><th>Where to get it</th><th>Used in</th></tr>
+  <tr><td><code>HF_TOKEN</code></td><td>huggingface.co → Settings → Access Tokens → New token (Read role). <b>Free.</b></td><td>Backend <code>.env</code> — auth for the HF Inference API.</td></tr>
+  <tr><td><code>HF_MODEL</code></td><td>The model id string, e.g. <code>meta-llama/Llama-3.3-70B-Instruct</code>.</td><td>Backend <code>.env</code>.</td></tr>
+  <tr><td><code>DATABASE_URL</code></td><td>neon.tech → create project → copy the Postgres connection string. <b>Free tier.</b></td><td>Backend <code>.env</code> — Prisma connection.</td></tr>
+  <tr><td><code>JWT_SECRET</code></td><td>Any long random string you generate yourself.</td><td>Backend <code>.env</code> — sign/verify auth tokens.</td></tr>
+  <tr><td><code>PORT</code></td><td>e.g. <code>4000</code> (local).</td><td>Backend <code>.env</code>.</td></tr>
+  <tr><td><code>VITE_API_URL</code></td><td>Your backend URL (local: <code>http://localhost:4000</code>; prod: the Render URL).</td><td>Frontend <code>.env</code>.</td></tr>
+</table>
+<pre>// server/.env  (NEVER commit — add to .gitignore)
+HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxxxx
+HF_MODEL=meta-llama/Llama-3.3-70B-Instruct
+DATABASE_URL=postgresql://user:pass@ep-xxx.neon.tech/db?sslmode=require
+JWT_SECRET=change_this_to_a_long_random_string
+PORT=4000
+
+// client/.env
+VITE_API_URL=http://localhost:4000</pre>
+<div class="note">Add <code>.env</code> to <code>.gitignore</code> in <b>both</b> folders. Commit a <code>.env.example</code> with empty values so reviewers know what's needed without seeing your secrets.</div>
+
+<!-- ============ 9. API ============ -->
+<h2>9. API Endpoints</h2>
+<table>
+  <tr><th>Method + Path</th><th>Auth</th><th>Does</th></tr>
+  <tr><td><code>POST /api/auth/register</code></td><td>No</td><td>Create account (hash password with bcrypt), return JWT.</td></tr>
+  <tr><td><code>POST /api/auth/login</code></td><td>No</td><td>Verify credentials, return JWT.</td></tr>
+  <tr><td><code>POST /api/debate</code></td><td>Yes</td><td>Start a debate: save topic + sides, return debateId.</td></tr>
+  <tr><td><code>POST /api/debate/:id/turn</code></td><td>Yes</td><td>Core call: save user turn → Debater + Judge → save AI turn + score → return rebuttal + score.</td></tr>
+  <tr><td><code>GET /api/debate</code></td><td>Yes</td><td>List the user's saved debates.</td></tr>
+  <tr><td><code>GET /api/debate/:id</code></td><td>Yes</td><td>Full transcript + all scores of one debate.</td></tr>
+</table>
+
+<!-- ============ 10. PHASES ============ -->
+<h2>10. Build Plan — Phases &amp; Milestones (~2 weeks part-time)</h2>
+<table>
+  <tr><th>Phase</th><th>Work</th><th>Milestone</th></tr>
+  <tr><td><b>0. Setup</b> (½ day)</td><td>Two folders, Vite React app, Express server, Prisma + Neon, <code>.env</code>, health-check route.</td><td>Frontend ↔ backend ↔ DB all connected.</td></tr>
+  <tr><td><b>1. Core debate</b> (2–3 d)</td><td>Topic/side picker, <code>callLLM</code> + Debater, chat UI, take-turn endpoint.</td><td>You can have a full text debate with the AI.</td></tr>
+  <tr><td><b>2. Scoring ⭐</b> (2–3 d)</td><td>Judge call, JSON parse/repair, Score table, ScoreCard UI with fallacies + tips.</td><td>The unique feature works — the headline.</td></tr>
+  <tr><td><b>3. Auth + history</b> (1–2 d)</td><td>Register/login, JWT middleware, save + reopen debates, final summary screen.</td><td>Full CRUD + accounts.</td></tr>
+  <tr><td><b>4. Voice</b> (1–2 d)</td><td>Web Speech API: speak arguments, AI reads rebuttals aloud.</td><td>The "wow" demo feature.</td></tr>
+  <tr><td><b>5. Polish + deploy</b> (1–2 d)</td><td>Loading/error states, rate limiting, mobile responsive, deploy 3 tiers, README + demo GIF.</td><td>Live URL for the resume.</td></tr>
+</table>
+<p><b>Minimum viable resume project = Phases 1–2.</b> Phases 3–5 make it stand out.</p>
+
+<!-- ============ 11. SETUP ============ -->
+<h2>11. Quick Setup Commands</h2>
+<pre># backend
+mkdir ai-debate && cd ai-debate
+mkdir server && cd server
+npm init -y
+npm i express cors dotenv jsonwebtoken bcrypt @prisma/client
+npm i -D typescript ts-node-dev @types/express @types/node prisma
+npx prisma init            # then paste schema + DATABASE_URL, run: npx prisma migrate dev
+
+# frontend (from ai-debate root)
+npm create vite@latest client -- --template react-ts
+cd client && npm i && npm i -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p</pre>
+
+<!-- ============ 12. WATCH OUT ============ -->
+<h2>12. Watch Out For</h2>
+<ul>
+  <li><b>API key security</b> — HF token backend-only, never in the React bundle.</li>
+  <li><b>HF rate limits / cold starts</b> — the first call to a serverless model can be slow ("model loading"). Show a loading state and retry after a short wait.</li>
+  <li><b>JSON reliability</b> — always run the Judge output through the parse/repair helper; never trust raw model text.</li>
+  <li><b>Cost control</b> — cap turns per debate and set <code>max_new_tokens</code> low.</li>
+  <li><b>Web Speech API support</b> — best in Chrome. Note this in the README instead of fighting cross-browser gaps.</li>
+  <li><b>Scoring consistency</b> — give the Judge an explicit 1-vs-10 rubric so scores are stable across turns.</li>
+</ul>
+
+<hr>
+<p style="text-align:center; color:#9a9ab0; font-size:9pt; margin-top:20px;">AI Debate Partner — Technical Plan &nbsp;•&nbsp; Free open-source (Hugging Face) stack &nbsp;•&nbsp; Runs at $0</p>
+
+</body>
+</html>
