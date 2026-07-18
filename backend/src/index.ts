@@ -1,12 +1,16 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import debateRouter from "./routes/debate";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Feature routes
+app.use("/api/debate", debateRouter);
 
 // Basic health check — proves the API is up. No DB needed.
 app.get("/api/health", (_req, res) => {
